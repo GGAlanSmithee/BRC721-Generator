@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "a repo for generating and maintaining brc 721 inscriptions",
   "scripts": {
+    "convert-base58-encoded-compressed-WIF-to-hex": "node ./scripts/converters/base58-encoded-compressed-WIF-to-hex.mjs",
     "generate-collection-manifest": "node ./scripts/generate-collection-manifest.mjs",
     "generate-reveal-manifest": "node ./scripts/generate-reveal-manifest.mjs",
     "generate-inscription-manifest": "node ./scripts/generate-inscription-manifest.mjs",
@@ -19,11 +20,11 @@
   "author": "Alan Smithee (ggnore.alan.smithee@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "bs58": "^5.0.0",
     "dotenv": "^16.0.3",
     "elliptic": "^6.5.4",
     "js-sha256": "^0.9.0",
     "jsonschema": "^1.4.1",
-    "node-fetch": "^3.3.1",
-    "utf8": "^3.0.0"
+    "node-fetch": "^3.3.1"
   }
 }
