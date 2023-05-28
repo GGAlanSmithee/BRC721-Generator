@@ -5,11 +5,17 @@ import { readManifests } from "../utils/read-manifests.mjs"
 import { writeManifest } from "../utils/write-manifest.mjs"
 import { createContentSignature } from "../utils/create-content-signature.mjs"
 import { validateEnvVariables } from "../utils/validate-env-variables.mjs"
+import { validateContentSignature } from "../utils/validate-content-signature.mjs"
 
 validateEnvVariables("reveal")
 
-const { BRC_721_VERSION, BRC_721_PRIVATE_KEY, BRC_721_COLLECTION_INSCRIPTION_ID, BRC_721_METADATA_URL } =
-  process.env
+const {
+  BRC_721_VERSION,
+  BRC_721_SIGNER_PUBLIC_KEY,
+  BRC_721_PRIVATE_KEY,
+  BRC_721_COLLECTION_INSCRIPTION_ID,
+  BRC_721_METADATA_URL,
+} = process.env
 
 const { revealManifestContent } = readManifests()
 
@@ -26,6 +32,8 @@ const content = JSON.stringify(
 )
 
 const contentSignature = createContentSignature(content, BRC_721_PRIVATE_KEY)
+
+validateContentSignature(BRC_721_SIGNER_PUBLIC_KEY, content, contentSignature)
 
 const manifest = {
   protocol: {

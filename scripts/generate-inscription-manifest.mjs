@@ -4,6 +4,7 @@ dotenv.config()
 import { writeManifest } from "../utils/write-manifest.mjs"
 import { createContentSignature } from "../utils/create-content-signature.mjs"
 import { validateEnvVariables } from "../utils/validate-env-variables.mjs"
+import { validateContentSignature } from "../utils/validate-content-signature.mjs"
 
 validateEnvVariables("inscription")
 
@@ -26,6 +27,8 @@ const content = JSON.stringify(
 )
 
 const contentSignature = createContentSignature(content, BRC_721_PRIVATE_KEY)
+
+validateContentSignature(BRC_721_SIGNER_PUBLIC_KEY, content, contentSignature)
 
 const manifest = {
   protocol: {

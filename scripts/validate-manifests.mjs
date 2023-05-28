@@ -34,6 +34,9 @@ try {
     validate(inscriptionManifestContent, inscriptionManifestContentSchema)
     validate(inscriptionManifest, inscriptionManifestSchema)
 
+    if (!collectionManifest)
+      console.log("CollectionManifest.json not found. Cannot perform full InscriptionManifest validation.")
+
     // InscriptionManifest.protocol.version is equal to CollectionManifest.protocol.version
     if (inscriptionManifest.protocol.version !== collectionManifest?.protocol?.version)
       throw new Error(
@@ -84,6 +87,9 @@ try {
     validate(revealManifestContent, revealManifestContentSchema)
 
     // RevealManifest.protocol.version is equal to CollectionManifest.protocol.version
+
+    if (!collectionManifest)
+      console.log("CollectionManifest.json not found. Cannot perform full RevealManifest validation.")
 
     if (revealManifest.protocol.version !== collectionManifest?.protocol?.version)
       throw new Error("RevealManifest protocol version does not match CollectionManifest protocol version")
