@@ -12,6 +12,7 @@ Use at your own risk, still under development
 - Generate Reveal Manifest
 - Generate Inscription Manifest(s) // only one for now
 - Validate Manifests
+- Utility to convert private keys from base 58 encoded Compressed WIF to hex 
 
 ## Usage
 
@@ -19,6 +20,10 @@ Use at your own risk, still under development
 - Add env variables (see below)
 - `npm i`
 - run scripts (as declared in `package.json`)
+
+## Inscribe your manifest to the BTC chain
+
+Use a service like https://unisat.io/inscribe
 
 ## ENV variables
 
@@ -52,7 +57,8 @@ To use this project, relevant information must be set in a `.env` file
 
 ## Reference / Read more
 
-See https://www.brc721.com/specification (and other pages on that site)
+* https://www.brc721.com/specification
+* https://tutorial.brc721.com/
 
 ## LICENSE
 
