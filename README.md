@@ -60,7 +60,7 @@ To use this project, relevant information must be set in a `.env` file
 - `BRC_721_PAYMENT_ADDRESS`
 - `BRC_721_SIGNER_PUBLIC_KEY`
 - `BRC_721_PRIVATE_KEY`
-  - found in your wallet
+  - need to match `BRC_721_SIGNER_PUBLIC_KEY`
 
 ### Needed for generating a collection manifest
 
